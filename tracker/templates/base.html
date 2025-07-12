@@ -1,0 +1,15 @@
+{% block first %}
+
+{% endblock %}
+
+{% if messages %}
+<script>
+    {% for message in messages%}
+    alert('{{message}}')
+    {% endfor %}
+</script>
+{% endif %}
+
+{% block sec %}
+
+{% endblock %}
