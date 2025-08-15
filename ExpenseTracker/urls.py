@@ -19,5 +19,8 @@ from django.urls import path,include
 
 urlpatterns = [
     path('',include("tracker.urls")),
-    path('site-admin-view/', admin.site.urls),
+    path('admin/', admin.site.urls),
 ]
+
+handler404='tracker.views.error_page'
+handler500='tracker.views.error_page'

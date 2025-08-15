@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block start %}
 
-<h1>Expense Tracker</h1>
+<h1 id="mi">Expense Tracker</h1>
 <div style="position:absolute;left:88%;top:15px;">
 <b> Hi {{request.user.first_name}} &nbsp;&nbsp;&nbsp;</b>
 <a style="text-decoration:none;background-color:#13168d; color:white;border-radius: 16px;padding: 5px 10px;" href="{% url 'logout_view' %}">Logout</a>
@@ -31,7 +31,7 @@
   <ul id="list" class="list">
     {% for transaction in transactions %}
     <li class={% if transaction.expense_type == 'CREDIT' %}"plus"{% else %}"minus"{% endif %}>
-      {{transaction.description}} <span>{{transaction.amount}}</span>
+      <div style="overflow: hidden; text-overflow: ellipsis;">{{transaction.description}}</div> <span>{{transaction.amount}}</span>
       <a class="delete-btn" href="{% url 'delete_transaction' transaction.id %}"><i class="fa fa-times"></i></a>
     </li>
     {% endfor %}

@@ -4,14 +4,17 @@ from django.db import models
 
 class CurrentBalance(models.Model):
     current_balance = models.FloatField(default=0)
-
+    username = models.CharField(max_length=200,null=True,blank=True,unique=True)
+    def __str__(self):
+        return f"{self.username}"
     
 
 class TrackingHistory(models.Model):
-    current_balance = models.ForeignKey(CurrentBalance, on_delete=models.CASCADE,default=1)
+    username = models.ForeignKey(CurrentBalance, to_field="username",on_delete=models.CASCADE)
     amount = models.FloatField(editable=False)
     expense_type = models.CharField(max_length=100,choices=(('CREDIT','CREDIT'),('DEBIT','DEBIT')))
     description = models.CharField(max_length=200)
+    # username = models.CharField(max_length=200,null=True,blank=True)
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):

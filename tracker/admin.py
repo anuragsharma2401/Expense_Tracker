@@ -28,7 +28,7 @@ class Trackinghistory(admin.ModelAdmin):
                     'expense_type',
                     'description',
                     'created_at',
-                    'display_age',
+                    'transaction_nature',
     ]
     search_fields = ['expense_type',
                      'amount',
@@ -37,11 +37,15 @@ class Trackinghistory(admin.ModelAdmin):
     ordering = ['-created_at']
     list_filter = ['expense_type']
     actions = [make_credit,make_debit]
-    def display_age(self,obj):
+    def transaction_nature(self,obj):
         if obj.amount>0:
             return "Positive"
         return "Negative"    
-    
+
+class CurrentBalance(admin.ModelAdmin):
+    list_display = ['username',
+                    'current_balance',
+    ]   
 
 
 admin.site.register(TrackingHistory,Trackinghistory)

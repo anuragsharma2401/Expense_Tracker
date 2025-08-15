@@ -7,3 +7,5 @@ urlpatterns = [
     path("register/",views.register_view,name="register_view"),
     path("delete_transaction/<id>",views.delete_transaction,name="delete_transaction")
 ]
+
+
