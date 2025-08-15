@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@of%!#@(*!zch@=i8s)d-j@o-bk6#-x_q7+$$7^lso+&)t3z(h'
+SECRET_KEY = 'Add your secret key here'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -81,16 +81,8 @@ WSGI_APPLICATION = 'ExpenseTracker.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'Expense_Tracker',
-       'USER': 'postgres',
-       'PASSWORD': 'anurag2407R',
-       'HOST': 'localhost',
-       'PORT': '5432',
-   }
-}
+# You can use your own database here or can use above one(default sqlite)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
